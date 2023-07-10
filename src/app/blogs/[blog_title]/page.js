@@ -1,6 +1,6 @@
 import { headers } from 'next/headers';
 
-export default async function Page({ params, req }) {
+export default async function Page({ params }) {
     const getBlogData = async () => {
         const headersList = headers()
         const host = headersList.get('host')
