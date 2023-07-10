@@ -2,7 +2,7 @@
 
 export default async function Page({ params }) {
     const getBlogData = async () => {
-        const res = await fetch(`http://192.168.0.63:3000/api/blog/search?id=${params.blog_title}`,{ cache: 'no-store' })
+        const res = await fetch(`/api/blog/search?id=${params.blog_title}`,{ cache: 'no-store' })
         if (!res.ok) {
             throw new Error("Failed to fetch blog data")
         }
