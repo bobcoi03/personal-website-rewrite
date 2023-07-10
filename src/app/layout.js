@@ -7,6 +7,7 @@ import { Providers } from './globalRedux/provider'
 import Nav from '../components/nav'
 import MainBody from './mainBody'
 import Footer from '../components/footer'
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: TITLE_NAME,
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer/>
         </Providers>
+        <Analytics/>
       </MainBody>
     </html>
   )
