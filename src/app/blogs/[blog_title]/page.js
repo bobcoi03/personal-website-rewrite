@@ -1,8 +1,11 @@
+import { headers } from 'next/headers';
 
-
-export default async function Page({ params }) {
+export default async function Page({ params, req }) {
     const getBlogData = async () => {
-        const res = await fetch(`/api/blog/search?id=${params.blog_title}`,{ cache: 'no-store' })
+        const headersList = headers()
+        const host = headersList.get('host')
+        console.log("host:", host)
+        const res = await fetch(`http://${host}/api/blog/search?id=${params.blog_title}`)
         if (!res.ok) {
             throw new Error("Failed to fetch blog data")
         }
